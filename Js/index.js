@@ -59,9 +59,17 @@ odomTopic.subscribe(function(message) {
     const position = message.pose.pose.position;
     const orientation = message.pose.pose.orientation;
 
+    const linearVelocity = message.twist.twist.linear;
+    const angularVelocity = message.twist.twist.angular;
+
     document.getElementById('position-x').innerText = `x: ${position.x.toFixed(2)}`;
     document.getElementById('position-y').innerText = `y: ${position.y.toFixed(2)}`;
     document.getElementById('orientation').innerText = `Orientation: ${orientation.z.toFixed(2)}`; 
+
+    document.querySelector('.velocity-info p:nth-of-type(1)').innerText = 
+            `Linear Velocity: (x: ${linearVelocity.x.toFixed(2)}, y: ${linearVelocity.y.toFixed(2)}, z: ${linearVelocity.z.toFixed(2)})`;
+    document.querySelector('.velocity-info p:nth-of-type(2)').innerText = 
+            `Angular Velocity: (x: ${angularVelocity.x.toFixed(2)}, y: ${angularVelocity.y.toFixed(2)}, z: ${angularVelocity.z.toFixed(2)})`;
 });
 
     //////////////////////////////////////////////////////////////////////////////////////////
