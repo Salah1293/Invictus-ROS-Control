@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invictus ROS Controller</title>
+    <link rel="stylesheet" href="../styling/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <button class="btn btn-dark me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                ☰ Tobics
+            </button>
+            <a class="navbar-brand" href="index.html">Invictus</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Topics</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-decoration-none">Video Streaming</a></li>
+                <li><a href="#" class="text-decoration-none">Sensor Readings</a></li>
+                <li><a href="#" class="text-decoration-none">Map</a></li>
+                <li><a href="#" class="text-decoration-none">Positions</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-4">
+        <!-- Top section with heading and button -->
+        <div class="text-center mb-4">
+            <h1 class="head-title">Invictus ROS Controller</h1>
+            <button id="status-button" class="btn btn-success">Robot ON</button>
+        </div>
+
+        <!-- Lower section with the map and control interface -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="control-interface">
+                    <!-- Control Circle -->
+                    <div class="outer-circle d-flex justify-content-center align-items-center position-relative">
+                        <div class="arrow up" id="up">↑</div>
+                        <div class="arrow down" id="down">↓</div>
+                        <div class="arrow left" id="left">←</div>
+                        <div class="arrow right" id="right">→</div>
+                        <div class="inner-circle"></div>
+                    </div>
+
+                    <div class="position-info mt-3">
+                        <h4>POSITION</h4>
+                        <p>x: -2.89</p>
+                        <p>y: -3.15</p>
+                        <p>Orientation: 68.25</p>
+                    </div>
+                    <div class="velocity-info mt-2">
+                        <h4>VELOCITIES</h4>
+                        <p>Linear Velocity: 0:00</p>
+                        <p>Angular Velocity: 0:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="robot-map" class="border">
+                    <img id="robot-image" src="" alt="Visualized Detections" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+<!-- Bootstrap 5 JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+<!-- Custom JavaScript -->
+<script src="../js/index.js"></script>
+<script src="../Js/roslib.min.js"></script>
+</html>

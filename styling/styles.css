@@ -1,0 +1,225 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.head-title {
+    font-size: 2em;
+    color: #333;
+}
+
+#status-button {
+    padding: 10px 20px;
+    background-color: #6ed45c;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 550;
+}
+
+.control-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.outer-circle {
+    width: 180px;
+    height: 180px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.inner-circle {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+#up {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#down {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#left {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#right {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.active-up {
+    transform: translate(0, -60px);
+}
+
+.active-down {
+    transform: translate(0, 60px);
+}
+
+.active-left {
+    transform: translate(-60px, 0);
+}
+
+.active-right {
+    transform: translate(60px, 0);
+}
+
+.position-info, .velocity-info {
+    text-align: left;
+}
+
+#robot-map {
+    background-color: #fbf5f5;
+    border-radius: 15px; 
+    margin: 10px;
+    width: 900px;
+    height: 480px;
+}
+
+@media (min-width: 480px) and (max-width: 1400px)  {
+    .control-interface,
+    #robot-map {
+        width: 45%; 
+        margin: 10px;
+    }
+
+    .outer-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .inner-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow {
+        font-size: 20px;
+    }
+
+    .position-info, .velocity-info {
+        font-size: 0.9em;
+    }
+
+    .head-title {
+        font-size: 1.8em;
+    }
+
+    #status-button {
+        font-size: 0.9em;
+        width: 80%;
+    }
+
+    #robot-map {
+        height: 40vh;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .control-interface {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+
+    #robot-map {
+        width: 100%;
+        height: 35vh;
+        margin-bottom: 20px;
+        float: none;
+    }
+
+    .outer-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .inner-circle {
+        width: 30px;
+        height: 30px;
+    }
+
+    .arrow {
+        font-size: 18px;
+    }
+
+    .position-info, .velocity-info {
+        font-size: 0.8em;
+    }
+
+    .head-title {
+        font-size: 1.5em;
+    }
+
+    #status-button {
+        font-size: 0.8em;
+        padding: 10px 20px;
+        width: 90%;
+    }
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offcanvas-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.offcanvas-body ul li a {
+    padding: 10px 0;
+    color: #000;
+}
+
+.offcanvas-body ul li a:hover {
+    color: #f1f1f1;
+}
