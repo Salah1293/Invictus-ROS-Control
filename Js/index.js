@@ -42,6 +42,28 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Received and displayed image from /visualized_detections topic.`);
 });
 
+
+
+/////////////////////// Subscribe to the /mavros/local_position/odom topic////////////////////////////////
+const odomTopic = new ROSLIB.Topic({
+    ros: ros,
+    name: '/mavros/local_position/odom',
+    messageType: 'nav_msgs/Odometry'
+});
+
+// Handle incoming odometry messages
+odomTopic.subscribe(function(message) {
+    console.log('Received odometry message:', message);
+
+    // Extract position and orientation
+    const position = message.pose.pose.position;
+    const orientation = message.pose.pose.orientation;
+
+    document.getElementById('position-x').innerText = `x: ${position.x.toFixed(2)}`;
+    document.getElementById('position-y').innerText = `y: ${position.y.toFixed(2)}`;
+    document.getElementById('orientation').innerText = `Orientation: ${orientation.z.toFixed(2)}`; 
+});
+
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Set up the map with Leaflet
